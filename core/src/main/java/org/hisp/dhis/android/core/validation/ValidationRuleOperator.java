@@ -29,12 +29,22 @@
 package org.hisp.dhis.android.core.validation;
 
 public enum ValidationRuleOperator {
-    equal_to,
-    not_equal_to,
-    greater_than,
-    greater_than_or_equal_to,
-    less_than,
-    less_than_or_equal_to,
-    compulsory_pair,
-    exclusive_pair
+    equal_to("=="),
+    not_equal_to("!="),
+    greater_than(">"),
+    greater_than_or_equal_to(">="),
+    less_than("<"),
+    less_than_or_equal_to("<="),
+    compulsory_pair("[compulsory pair]"),
+    exclusive_pair("[exclusive pair]");
+
+    private final String mathematicalOperator;
+
+    ValidationRuleOperator(String mathematicalOperator) {
+        this.mathematicalOperator = mathematicalOperator;
+    }
+
+    public String getMathematicalOperator() {
+        return mathematicalOperator;
+    }
 }
